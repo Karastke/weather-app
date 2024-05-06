@@ -2,28 +2,33 @@ import './App.css'
 import axios from 'axios'
 import './index.css'
 import { useState } from 'react'
+import Weather from './components/Weather';
+
 
 function App() {
 
   const [data, setData] = useState({})
   const [location, setLocation] = useState("")
 
-  const API_KEY = "b641c1f69bb6c4da9b041d57648c9a39"
-  const url = `https://api.openweathermap.org/data/2.5./weather?q=${location}&appid=
-  ${API_KEY}`
+  const API_KEY = "b641c1f69bb6c4da9b041d57648c9a39"; //지울 예정임
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_KEY}`;
 
   const searchLocation = (event) => {
     if (event.key === "Enter") {
+      console.log("Making API Call to URL:", url); // URL 로그를 찍어서 호출 URL 확인
       axios.get(url)
         .then((response) => {
-          setData(response.data);
-          console.log(response.data);
+          console.log("API Response Data:", response.data); // API로부터 받은 데이터 로그
+          setData(response.data); // 데이터를 상태에 저장
         }).catch((error) => {
-          console.error("API 에러:", error);
+          console.error("API Error:", error); // 에러 로그
+          console.error("Error Details:", error.response ? error.response.data : 'No response data'); // 에러 상세 정보 로그
         });
-        setLocation("");
+      setLocation(""); // 위치를 입력한 후 초기화
     }
   }
+  
+  
   return (
     <div className='w-full h-full relative'>
       <div className='text-center p-4'>
@@ -34,6 +39,8 @@ function App() {
       onChange={(event) => setLocation(event.target.value)}
       onKeyDownCapture={searchLocation}/>
       </div>
+
+      <Weather weatherData = {data}/>
     </div>
   )
 }
