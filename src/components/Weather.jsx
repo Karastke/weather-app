@@ -15,9 +15,20 @@ const Weather = ({ weatherData }) => {
                   <p className='text-xl'>
                     {weatherData.name}, {weatherData.sys.country}
                   </p>
-                  <p>{weatherData.weather[0].main}: {weatherData.weather[0].description}</p>
+                  <p className='text-sm'>{weatherData.weather[0]
+                  .description}</p>
+                </div>
+                <div>
+                    <h1 className='text-6xl font-semibold'>{weatherData.main.temp.
+                    toFixed()
+                    }℃  </h1>
                 </div>
               </div>
+            </div>
+
+            <div className='w-1/2 flex flex-col justify-between items-end'></div>
+            <div className='relative'>
+                <img src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`} alt="" />
             </div>
           </div>
         </div>

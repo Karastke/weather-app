@@ -11,7 +11,7 @@ function App() {
   const [location, setLocation] = useState("")
 
   const API_KEY = "b641c1f69bb6c4da9b041d57648c9a39"; //지울 예정임
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_KEY}`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${API_KEY}`;
 
   const searchLocation = (event) => {
     if (event.key === "Enter") {
