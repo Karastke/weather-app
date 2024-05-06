@@ -33,26 +33,26 @@ const Weather = ({ weatherData }) => {
                 {weatherData.name !== undefined ? (
                     <div className='flex flex-col justify-evenly gap-y-2 my-4 mx-auto text-xs'>
                         <div className="flex-justify-evenly gap-x-8">
-                            <p>Feels Like</p>
+                            <p>체감온도</p>
                             <p className='font-bold w-20'>
                                 {weatherData.main.feels_like.toFixed()} ℃
                             </p>
                         </div>
                         <div className="flex-justify-evenly gap-x-8">
-                            <p>Humidity</p>
+                            <p>습도</p>
                             <p className='font-bold w-20'>
                                 {weatherData.main.humidity} %
                             </p>
                             
                         </div>
                         <div className="flex-justify-evenly gap-x-8">
-                            <p>Wind Speed</p>
+                            <p>풍속</p>
                             <p className='font-bold w-20'>
                                 {weatherData.wind.speed.toFixed()} KPH
                             </p>
                         </div>
                         <div className="flex-justify-evenly gap-x-8">
-                            <p>Pressure</p>
+                            <p>기압</p>
                             <p className='font-bold w-20'>
                                 {weatherData.main.pressure.toFixed()} hPa
                             </p>
