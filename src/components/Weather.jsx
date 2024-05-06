@@ -28,8 +28,9 @@ const Weather = ({ weatherData }) => {
 
             <div className='w-1/2 flex flex-col justify-between items-end'></div>
             <div className='relative'>
-                <img src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`} alt="" />
+                <img src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`} alt="" className='w-[120px]' />
             </div>
+            
           </div>
         </div>
       ) : null}
